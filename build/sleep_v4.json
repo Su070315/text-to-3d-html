@@ -1,0 +1,98 @@
+{
+  "meta": {"title": "人为什么要睡觉（动态版）", "accent": "amber"},
+  "style": {
+    "palette": {"bg_top": [8, 11, 26], "bg_mid": [11, 18, 42], "bg_bot": [2, 3, 9], "glow": "amber", "vignette": 0.55},
+    "bg": "deep-space",
+    "accents": ["amber", "cyan"]
+  },
+  "chapters": [
+    {
+      "no": "", "label_cn": "人为什么要睡觉", "label_en": "WHY WE SLEEP",
+      "accent": "amber", "duration": 5.0,
+      "scene": {"type": "title", "title_cn": "人为什么要睡觉", "title_en": "WHY WE SLEEP"}
+    },
+    {
+      "no": "01", "label_cn": "三分之一", "label_en": "ONE THIRD",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "art", "art": "moon", "bigtext": "1/3", "label": "生命时长",
+                "tags": ["7-9 小时", "深睡 20%", "REM"]},
+      "sub": "你这辈子，有 1/3 在睡眠里度过"
+    },
+    {
+      "no": "02", "label_cn": "不是关机", "label_en": "NOT OFF",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "art", "art": "brain", "label": "大脑在加班",
+                "tags": ["记忆", "情绪", "清理"]},
+      "sub": "睡着的脑，比清醒时更忙"
+    },
+    {
+      "no": "03", "label_cn": "记忆归档", "label_en": "MEMORY",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "art", "art": "book", "label": "存入长期记忆",
+                "tags": ["海马体", "短期转长期"]},
+      "sub": "白天的经历，夜里被整理归档"
+    },
+    {
+      "no": "04", "label_cn": "脑脊液大扫除", "label_en": "BRAIN WASH",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "art", "art": "droplet", "label": "脑脊液冲刷",
+                "tags": ["脑脊液", "冲走废物"]},
+      "sub": "脑脊液趁夜扩大，冲走清醒时的代谢垃圾"
+    },
+    {
+      "no": "05", "label_cn": "垃圾堆积", "label_en": "AMYLOID",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "art", "art": "trash", "label": "淀粉样蛋白累积",
+                "tags": ["淀粉样蛋白", "β 沉积"]},
+      "sub": "睡不够，大脑里的废物就越堆越多"
+    },
+    {
+      "no": "06", "label_cn": "身体修复", "label_en": "REPAIR",
+      "accent": "teal", "duration": 7.3,
+      "scene": {"type": "art", "art": "gear", "label": "组织修复",
+                "tags": ["生长激素", "修补细胞"]},
+      "sub": "深睡时生长激素高峰，悄悄修补身体"
+    },
+    {
+      "no": "07", "label_cn": "免疫加固", "label_en": "IMMUNE",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "art", "art": "shield", "label": "抗体更充足",
+                "tags": ["抗体", "T 细胞"]},
+      "sub": "睡好觉，疫苗抗体都更给力"
+    },
+    {
+      "no": "08", "label_cn": "反应力透支", "label_en": "ATTENTION",
+      "accent": "amber", "duration": 8.0,
+      "scene": {"type": "chart", "kind": "bar", "data": [
+        {"value": 100, "label": "清醒时", "value_label": "100%", "accent": "cyan"},
+        {"value": 35, "label": "17h不睡", "value_label": "≈醉酒", "accent": "ember"}
+      ]},
+      "sub": "清醒满 17 小时，反应力已相当于醉酒"
+    },
+    {
+      "no": "09", "label_cn": "越熬越饿", "label_en": "METABOLISM",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "art", "art": "apple", "label": "饥饿素上升",
+                "tags": ["饥饿素↑", "瘦素↓"]},
+      "sub": "睡不够，饥饿素上升，肥肉也来得快"
+    },
+    {
+      "no": "10", "label_cn": "长期代价", "label_en": "LONG TERM",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "art", "art": "heart", "label": "心血管风险",
+                "tags": ["血压", "心血管"]},
+      "sub": "长期缺觉，慢病风险悄悄拉高"
+    },
+    {
+      "no": "11", "label_cn": "怎么睡更好", "label_en": "HOW TO SLEEP",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "compare", "arts": ["clock", "moon"], "labels": ["固定作息", "卧室够暗"]},
+      "sub": "规律作息、避蓝光、卧室足够暗"
+    },
+    {
+      "no": "", "label_cn": "今晚，早点睡", "label_en": "SLEEP WELL",
+      "accent": "amber", "duration": 5.0,
+      "scene": {"type": "title", "title_cn": "今晚，早点睡", "title_en": "SLEEP WELL"}
+    }
+  ]
+}
