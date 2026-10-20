@@ -1,7 +1,7 @@
-# 渲染成品视频（体积大，可从脚本重生成）
+# ===== 渲染成品（体积大，可从脚本重生成）=====
 *.mp4
 
-# 验证帧 / 参考帧（渲染中间产物）
+# ===== 验证帧 / 参考帧（渲染中间产物）=====
 build/photo_vfy/
 build/sleep_fin/
 build/sleep_h_vfy/
@@ -12,11 +12,20 @@ build/vfy/
 build/vfy_full/
 ref_frames/
 
-# Python
+# ===== 二进制与生成物 =====
+*.blend
+*.glb
+*.png
+*.jpg
+
+# ===== Python =====
 __pycache__/
 *.pyc
 *.pyo
 
-# 系统
+# ===== Node =====
+node_modules/
+
+# ===== 系统 =====
 Thumbs.db
 .DS_Store
