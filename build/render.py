@@ -374,10 +374,13 @@ class Renderer:
 
     # ===== 多图编排：主图 + 配角图 + 互联连线，共同解释一件事 =====
     def sc_compose(self, dc, s, t, dur, p, style):
+        """多图编排：hero + parts + 有方向的连线。
+        绘制顺序 = 连线(底) → 节点(中) → 标签(顶)，保证虚线永远不压字。"""
         W, H = self.W, self.H; S = self.S
         accents = style["accents"]
         bg = self.bg_color(style)
         nodes = {}
+        plan = []
 
         def place(e, default):
             pos = e.get("pos")
@@ -385,6 +388,7 @@ class Renderer:
                 return float(pos[0]) * W, float(pos[1]) * H
             return default
 
+        # ---- 第一遍：只算位置 ----
         hero = s.get("hero")
         if hero:
             hx, hy = place(hero, (W / 2, H * 0.45))
@@ -392,18 +396,8 @@ class Renderer:
             yy = hy + math.sin(t * 0.9) * S * 0.006
             rr = S * hero.get("size", 0.17) * (0.72 + 0.28 * local)
             col = ACCENTS.get(hero.get("accent", ""), accents[0])
-            self.sonar(dc, hx, yy, rr * 1.02, col, t, n=3, speed=0.26)
-            self.paste_glow(dc, (hx, yy), rr * 2.2, col, alpha=int(100 * local), power=2.2)
-            if hero.get("bigtext"):
-                self.text_c(dc, (hx, yy), hero["bigtext"], self.font(F_CN_B, int(H * 0.20)),
-                            style["palette"]["glow"] + (int(45 * local),))
-            drawing.draw_art(dc, hero.get("art", "moon"), hx, yy, rr, col, t, bg)
-            self.orbit_dots(dc, hx, yy, rr * 1.32, rr * 1.02, t, col, n=6, speed=0.9)
-            self.rise_dots(dc, hx, yy, rr * 0.7, rr * 2.0, t, col, n=5)
-            if hero.get("label"):
-                self.text_c(dc, (hx, yy + rr * 1.18), hero["label"], self.font(F_CN_B, int(H * 0.021)),
-                            style["text_main"] + (int(255 * local),))
             nodes["hero"] = (hx, yy, rr)
+            plan.append(("hero", hx, yy, rr, col, local, hero))
 
         parts = s.get("parts") or []
         n = len(parts)
@@ -419,16 +413,10 @@ class Renderer:
             r = S * pt.get("size", 0.085) * (0.62 + 0.38 * local)
             col = ACCENTS.get(pt.get("accent", ""), accents[(i + 1) % len(accents)])
             yy = y + math.sin(t * 1.05 + i * 1.3) * S * 0.007
-            self.paste_glow(dc, (x, yy), r * 2.1, col, alpha=int(90 * local), power=2.1)
-            self.sonar(dc, x, yy, r * 0.96, col, t, n=2, speed=0.30)
-            drawing.draw_art(dc, pt.get("art", "star"), x, yy, r, col, t, bg)
-            self.orbit_dots(dc, x, yy, r * 1.28, r * 1.02, t, col, n=4, speed=0.8)
-            if pt.get("label"):
-                self.text_c(dc, (x, yy + r * 1.42), pt["label"], self.font(F_CN, int(H * 0.017)),
-                            style["text_note"] + (int(255 * local),))
             nodes[i] = (x, yy, r)
+            plan.append(("part", x, yy, r, col, local, pt))
 
-        # 连线：流动虚线 + 光点 + 箭头（把多个图真正"连"起来）
+        # ---- 第二遍：连线（画在节点下层）----
         for lk in (s.get("links") or []):
             if len(lk) < 2:
                 continue
@@ -450,6 +438,29 @@ class Renderer:
                      (p2[0] - ux * 12 + uy * 7, p2[1] - uy * 12 - ux * 7)],
                     fill=note + (int(200 * local),), width=3, joint="curve")
             self.seg_dot(dc, p1, p2, t, style["accents"][0], n=2, speed=0.4, r=3)
+
+        # ---- 第三遍：节点图形 + 标签（文字压在最上层）----
+        for kind, x, yy, rr, col, local, item in plan:
+            if kind == "hero":
+                self.sonar(dc, x, yy, rr * 1.02, col, t, n=3, speed=0.26)
+                self.paste_glow(dc, (x, yy), rr * 2.2, col, alpha=int(100 * local), power=2.2)
+                if item.get("bigtext"):
+                    self.text_c(dc, (x, yy), item["bigtext"], self.font(F_CN_B, int(H * 0.20)),
+                                style["palette"]["glow"] + (int(45 * local),))
+                drawing.draw_art(dc, item.get("art", "moon"), x, yy, rr, col, t, bg)
+                self.orbit_dots(dc, x, yy, rr * 1.32, rr * 1.02, t, col, n=6, speed=0.9)
+                self.rise_dots(dc, x, yy, rr * 0.7, rr * 2.0, t, col, n=5)
+                if item.get("label"):
+                    self.text_c(dc, (x, yy + rr * 1.18), item["label"], self.font(F_CN_B, int(H * 0.021)),
+                                style["text_main"] + (int(255 * local),))
+            else:
+                self.paste_glow(dc, (x, yy), rr * 2.1, col, alpha=int(90 * local), power=2.1)
+                self.sonar(dc, x, yy, rr * 0.96, col, t, n=2, speed=0.30)
+                drawing.draw_art(dc, item.get("art", "star"), x, yy, rr, col, t, bg)
+                self.orbit_dots(dc, x, yy, rr * 1.28, rr * 1.02, t, col, n=4, speed=0.8)
+                if item.get("label"):
+                    self.text_c(dc, (x, yy + rr * 1.42), item["label"], self.font(F_CN, int(H * 0.017)),
+                                style["text_note"] + (int(255 * local),))
 
     def sc_title(self, dc, s, t, dur, p, style):
         W, H = self.W, self.H; S = self.S

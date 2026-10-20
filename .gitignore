@@ -10,6 +10,8 @@ build/v2_frames/
 build/v2_frames_1080/
 build/vfy/
 build/vfy_full/
+build/jurassic_vfy/
+build/art_*.png
 ref_frames/
 
 # ===== Python =====

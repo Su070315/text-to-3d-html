@@ -1,0 +1,697 @@
+{
+  "meta": {
+    "title": "侏罗纪时代",
+    "accent": "green"
+  },
+  "style": {
+    "palette": {
+      "bg_top": [
+        6,
+        15,
+        13
+      ],
+      "bg_mid": [
+        9,
+        26,
+        22
+      ],
+      "bg_bot": [
+        2,
+        7,
+        8
+      ],
+      "glow": "green",
+      "vignette": 0.55
+    },
+    "bg": "organic",
+    "accents": [
+      "green",
+      "amber",
+      "cyan",
+      "teal"
+    ]
+  },
+  "chapters": [
+    {
+      "no": "",
+      "label_cn": "侏罗纪时代",
+      "label_en": "JURASSIC",
+      "accent": "green",
+      "duration": 5.2,
+      "scene": {
+        "type": "title",
+        "title_cn": "侏罗纪",
+        "title_en": "JURASSIC  ·  201 – 145 MYA"
+      },
+      "sub": "地球史上最庞大的一批动物，属于这个时代"
+    },
+    {
+      "no": "01",
+      "label_cn": "泛古陆裂开",
+      "label_en": "PANGAEA BREAKS",
+      "accent": "green",
+      "duration": 7.4,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "landmass",
+          "pos": [
+            0.33,
+            0.46
+          ],
+          "size": 0.15,
+          "label": "泛古陆",
+          "accent": "green"
+        },
+        "parts": [
+          {
+            "art": "volcano",
+            "pos": [
+              0.82,
+              0.21
+            ],
+            "size": 0.07,
+            "label": "岩浆上涌",
+            "accent": "ember"
+          },
+          {
+            "art": "wave",
+            "pos": [
+              0.82,
+              0.41
+            ],
+            "size": 0.07,
+            "label": "海水灌入",
+            "accent": "teal"
+          },
+          {
+            "art": "landmass",
+            "pos": [
+              0.82,
+              0.6
+            ],
+            "size": 0.07,
+            "label": "冈瓦纳南漂",
+            "accent": "cyan"
+          }
+        ],
+        "links": [
+          [
+            0,
+            "hero"
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "一块超级大陆，被岩浆从中间撕开"
+    },
+    {
+      "no": "02",
+      "label_cn": "没有冰的暖房",
+      "label_en": "GREENHOUSE",
+      "accent": "amber",
+      "duration": 7.4,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "sun",
+          "pos": [
+            0.5,
+            0.31
+          ],
+          "size": 0.125,
+          "label": "全球暖房",
+          "accent": "amber"
+        },
+        "parts": [
+          {
+            "art": "cloud",
+            "pos": [
+              0.15,
+              0.58
+            ],
+            "size": 0.068,
+            "label": "高湿空气",
+            "accent": "cyan"
+          },
+          {
+            "art": "droplet",
+            "pos": [
+              0.5,
+              0.6
+            ],
+            "size": 0.068,
+            "label": "丰沛降雨",
+            "accent": "teal"
+          },
+          {
+            "art": "wave",
+            "pos": [
+              0.85,
+              0.58
+            ],
+            "size": 0.068,
+            "label": "浅海漫上大陆",
+            "accent": "green"
+          }
+        ],
+        "links": [
+          [
+            "hero",
+            0
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "两极没有冰盖，海平面高到淹没了半个欧洲"
+    },
+    {
+      "no": "03",
+      "label_cn": "最大的陆生动物",
+      "label_en": "SAUROPODS",
+      "accent": "green",
+      "duration": 7.6,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "sauropod",
+          "pos": [
+            0.67,
+            0.46
+          ],
+          "size": 0.15,
+          "label": "腕龙 · 12 米高",
+          "accent": "green"
+        },
+        "parts": [
+          {
+            "art": "conifer",
+            "pos": [
+              0.18,
+              0.21
+            ],
+            "size": 0.07,
+            "label": "针叶树冠层",
+            "accent": "teal"
+          },
+          {
+            "art": "cycad",
+            "pos": [
+              0.18,
+              0.41
+            ],
+            "size": 0.07,
+            "label": "苏铁",
+            "accent": "green"
+          },
+          {
+            "art": "footprint",
+            "pos": [
+              0.18,
+              0.6
+            ],
+            "size": 0.07,
+            "label": "巨型足迹",
+            "accent": "amber"
+          }
+        ],
+        "links": [
+          [
+            0,
+            "hero"
+          ],
+          [
+            1,
+            "hero"
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "它们每天要吃掉几百公斤植物，才能撑起这具身体"
+    },
+    {
+      "no": "04",
+      "label_cn": "顶级掠食者",
+      "label_en": "APEX PREDATOR",
+      "accent": "ember",
+      "duration": 7.4,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "theropod",
+          "pos": [
+            0.33,
+            0.46
+          ],
+          "size": 0.15,
+          "label": "异特龙",
+          "accent": "ember"
+        },
+        "parts": [
+          {
+            "art": "sauropod",
+            "pos": [
+              0.82,
+              0.21
+            ],
+            "size": 0.07,
+            "label": "蜥脚类幼体",
+            "accent": "green"
+          },
+          {
+            "art": "nest",
+            "pos": [
+              0.82,
+              0.41
+            ],
+            "size": 0.07,
+            "label": "巢与蛋",
+            "accent": "amber"
+          },
+          {
+            "art": "bolt",
+            "pos": [
+              0.82,
+              0.6
+            ],
+            "size": 0.07,
+            "label": "短距爆发",
+            "accent": "rose"
+          }
+        ],
+        "links": [
+          [
+            "hero",
+            0
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "十几米的巨兽也有天敌，尤其是还没长大的时候"
+    },
+    {
+      "no": "05",
+      "label_cn": "一个没有花的世界",
+      "label_en": "NO FLOWERS",
+      "accent": "green",
+      "duration": 7.4,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "cycad",
+          "pos": [
+            0.67,
+            0.46
+          ],
+          "size": 0.15,
+          "label": "苏铁",
+          "accent": "green"
+        },
+        "parts": [
+          {
+            "art": "conifer",
+            "pos": [
+              0.18,
+              0.21
+            ],
+            "size": 0.07,
+            "label": "针叶林",
+            "accent": "teal"
+          },
+          {
+            "art": "leaf",
+            "pos": [
+              0.18,
+              0.41
+            ],
+            "size": 0.07,
+            "label": "真蕨与木贼",
+            "accent": "green"
+          },
+          {
+            "art": "clock",
+            "pos": [
+              0.18,
+              0.6
+            ],
+            "size": 0.07,
+            "label": "花还要再等 6000 万年",
+            "accent": "amber"
+          }
+        ],
+        "links": [
+          [
+            "hero",
+            0
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "侏罗纪没有一朵花、一颗果实，也没有一只蜜蜂"
+    },
+    {
+      "no": "06",
+      "label_cn": "第一只鸟",
+      "label_en": "FIRST BIRD",
+      "accent": "cyan",
+      "duration": 7.6,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "bird",
+          "pos": [
+            0.5,
+            0.31
+          ],
+          "size": 0.125,
+          "label": "始祖鸟 · 1.5 亿年前",
+          "accent": "cyan"
+        },
+        "parts": [
+          {
+            "art": "theropod",
+            "pos": [
+              0.15,
+              0.58
+            ],
+            "size": 0.068,
+            "label": "小型兽脚类",
+            "accent": "ember"
+          },
+          {
+            "art": "conifer",
+            "pos": [
+              0.5,
+              0.6
+            ],
+            "size": 0.068,
+            "label": "林间滑翔",
+            "accent": "green"
+          },
+          {
+            "art": "footprint",
+            "pos": [
+              0.85,
+              0.58
+            ],
+            "size": 0.068,
+            "label": "索伦霍芬石灰岩",
+            "accent": "amber"
+          }
+        ],
+        "links": [
+          [
+            0,
+            "hero"
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "它有羽毛、有牙齿、还有一根长长的尾骨"
+    },
+    {
+      "no": "07",
+      "label_cn": "天空属于翼龙",
+      "label_en": "PTEROSAURS",
+      "accent": "amber",
+      "duration": 7.2,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "pterosaur",
+          "pos": [
+            0.33,
+            0.46
+          ],
+          "size": 0.15,
+          "label": "翼龙",
+          "accent": "amber"
+        },
+        "parts": [
+          {
+            "art": "cloud",
+            "pos": [
+              0.82,
+              0.21
+            ],
+            "size": 0.07,
+            "label": "上升气流",
+            "accent": "cyan"
+          },
+          {
+            "art": "wave",
+            "pos": [
+              0.82,
+              0.41
+            ],
+            "size": 0.07,
+            "label": "掠海捕鱼",
+            "accent": "teal"
+          },
+          {
+            "art": "nest",
+            "pos": [
+              0.82,
+              0.6
+            ],
+            "size": 0.07,
+            "label": "崖壁筑巢",
+            "accent": "green"
+          }
+        ],
+        "links": [
+          [
+            "hero",
+            0
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "它们不是恐龙，却是第一批发力飞上天空的脊椎动物"
+    },
+    {
+      "no": "08",
+      "label_cn": "海洋的另一套生态",
+      "label_en": "THE SEA",
+      "accent": "teal",
+      "duration": 7.4,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "ichthyosaur",
+          "pos": [
+            0.67,
+            0.46
+          ],
+          "size": 0.15,
+          "label": "鱼龙",
+          "accent": "teal"
+        },
+        "parts": [
+          {
+            "art": "plesiosaur",
+            "pos": [
+              0.18,
+              0.21
+            ],
+            "size": 0.07,
+            "label": "蛇颈龙",
+            "accent": "cyan"
+          },
+          {
+            "art": "ammonite",
+            "pos": [
+              0.18,
+              0.41
+            ],
+            "size": 0.07,
+            "label": "菊石",
+            "accent": "amber"
+          },
+          {
+            "art": "wave",
+            "pos": [
+              0.18,
+              0.6
+            ],
+            "size": 0.07,
+            "label": "温暖陆表海",
+            "accent": "teal"
+          }
+        ],
+        "links": [
+          [
+            "hero",
+            0
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            2,
+            "hero"
+          ]
+        ]
+      },
+      "sub": "同一片浅海里，游着完全不同的一群巨兽"
+    },
+    {
+      "no": "09",
+      "label_cn": "阴影里的幸存者",
+      "label_en": "UNDER THE SHADOW",
+      "accent": "rose",
+      "duration": 7.2,
+      "scene": {
+        "type": "compose",
+        "hero": {
+          "art": "mammal",
+          "pos": [
+            0.5,
+            0.31
+          ],
+          "size": 0.125,
+          "label": "早期哺乳动物",
+          "accent": "rose"
+        },
+        "parts": [
+          {
+            "art": "moon",
+            "pos": [
+              0.15,
+              0.58
+            ],
+            "size": 0.068,
+            "label": "昼伏夜出",
+            "accent": "cyan"
+          },
+          {
+            "art": "nest",
+            "pos": [
+              0.5,
+              0.6
+            ],
+            "size": 0.068,
+            "label": "地下洞穴",
+            "accent": "amber"
+          },
+          {
+            "art": "clock",
+            "pos": [
+              0.85,
+              0.58
+            ],
+            "size": 0.068,
+            "label": "还要等 1.4 亿年",
+            "accent": "violet"
+          }
+        ],
+        "links": [
+          [
+            "hero",
+            0
+          ],
+          [
+            "hero",
+            1
+          ],
+          [
+            "hero",
+            2
+          ]
+        ]
+      },
+      "sub": "我们的祖先当时只有老鼠大小，只在夜里出来"
+    },
+    {
+      "no": "10",
+      "label_cn": "到底有多大",
+      "label_en": "HOW BIG",
+      "accent": "green",
+      "duration": 7.6,
+      "scene": {
+        "type": "chart",
+        "kind": "bar",
+        "data": [
+          {
+            "value": 12.0,
+            "label": "腕龙",
+            "value_label": "12 m",
+            "accent": "green"
+          },
+          {
+            "value": 4.0,
+            "label": "非洲象",
+            "value_label": "4 m",
+            "accent": "cyan"
+          },
+          {
+            "value": 1.7,
+            "label": "人",
+            "value_label": "1.7 m",
+            "accent": "amber"
+          }
+        ]
+      },
+      "sub": "腕龙站直约 12 米，相当于四层楼高"
+    },
+    {
+      "no": "",
+      "label_cn": "巨兽的时代",
+      "label_en": "AGE OF GIANTS",
+      "accent": "green",
+      "duration": 5.2,
+      "scene": {
+        "type": "title",
+        "title_cn": "巨兽的时代",
+        "title_en": "AGE OF GIANTS"
+      },
+      "sub": "1.45 亿年前，侏罗纪安静地交棒给白垩纪"
+    }
+  ]
+}
