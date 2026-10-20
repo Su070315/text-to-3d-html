@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.blend
+*.glb
+*.png
+*.jpg
+node_modules/
