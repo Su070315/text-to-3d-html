@@ -655,27 +655,35 @@ def _ichthyosaur(dc, cx, cy, size, color, t, bg):
                 X(-0.52) + s * 0.030, Y(-0.10) + s * 0.030], fill=_rgba((255, 255, 255), 220))
 
 def _pterosaur(dc, cx, cy, size, color, t, bg):
-    """翼龙：翼膜 + 第四指支撑 + 长颅冠 + 拍动动画"""
+    """翼龙（俯视）：宽翼膜 + 长喙 + 头冠，振翅"""
     s = size; a = _rgba(color, 255)
     flap = math.sin(t * 1.5)
-    X = lambda u: cx + (u - 0.16) * s
-    Y = lambda v: cy + v * s + flap * s * 0.05
+    X = lambda u: cx + u * s
+    Y = lambda v: cy + v * s + flap * s * 0.03
+
+    def lp(p0, p1, u):
+        return (p0[0] + (p1[0] - p0[0]) * u, p0[1] + (p1[1] - p0[1]) * u)
+
     for sg in (-1, 1):
-        p1 = (X(sg * 0.55), Y(-0.28 - flap * 0.24))
-        p2 = (X(sg * 0.98), Y(0.10 + flap * 0.30))
-        dc.polygon([(X(-0.06), Y(-0.02)), p1, p2, (X(sg * 0.30), Y(0.16))],
-                   fill=_rgba(color, 52), outline=a, width=3)
-        dc.line([(X(sg * 0.02), Y(-0.04)), p1], fill=_rgba(color, 195), width=4)
-        dc.line([p1, p2], fill=_rgba(color, 195), width=4)
-    dc.ellipse([X(-0.16), Y(-0.16), X(0.16), Y(0.20)], fill=a)
-    _taper(dc, _bez((X(-0.10), Y(-0.14)), (X(-0.34), Y(-0.24)), (X(-0.66), Y(-0.20)), 10),
-           s * 0.075, s * 0.020, color, 235)
-    dc.polygon([(X(-0.10), Y(-0.16)), (X(-0.02), Y(-0.52)), (X(0.10), Y(-0.14))],
-               fill=_rgba(color, 185), outline=a, width=3)
-    dc.ellipse([X(-0.14) - s * 0.026, Y(-0.20) - s * 0.026,
-                X(-0.14) + s * 0.026, Y(-0.20) + s * 0.026], fill=_rgba((255, 255, 255), 220))
-    _taper(dc, _bez((X(0.12), Y(0.12)), (X(0.20), Y(0.26)), (X(0.26), Y(0.38)), 8),
-           s * 0.045, s * 0.012, color, 195)
+        root = (X(sg * 0.04), Y(-0.12))
+        mid = (X(sg * 0.72), Y(-0.40 - flap * 0.15))
+        tip = (X(sg * 1.02), Y(0.06 + flap * 0.20))
+        back = (X(sg * 0.26), Y(0.32))
+        dc.polygon([root, mid, tip, back], fill=_rgba(color, 50), outline=a, width=3)
+        for k in range(3):                                  # 翼膜张力线
+            u = 0.28 + 0.26 * k
+            dc.line([lp(root, tip, u), lp(back, tip, u)], fill=_rgba(color, 85), width=2)
+        dc.line([root, mid, tip], fill=_rgba(color, 200), width=4, joint="curve")
+    dc.polygon(_ellipse_poly(X(0.00), Y(0.04), s * 0.15, s * 0.31, seg=36),
+               fill=_rgba(color, 130), outline=a, width=3)
+    _taper(dc, [(X(-0.10), Y(-0.10)), (X(-0.42), Y(-0.15)), (X(-0.76), Y(-0.13))],
+           s * 0.085, s * 0.018, color, 230)
+    dc.polygon([(X(-0.10), Y(-0.18)), (X(-0.34), Y(-0.52)), (X(0.04), Y(-0.22))],
+               fill=_rgba(color, 165), outline=a, width=2)
+    dc.ellipse([X(-0.20) - s * 0.030, Y(-0.21) - s * 0.030,
+                X(-0.20) + s * 0.030, Y(-0.21) + s * 0.030], fill=_rgba((255, 255, 255), 220))
+    _taper(dc, [(X(0.12), Y(0.26)), (X(0.24), Y(0.42)), (X(0.30), Y(0.58))],
+           s * 0.050, s * 0.012, color, 195)
 
 def _bird(dc, cx, cy, size, color, t, bg):
     """始祖鸟（侧视）：具齿的喙 + 抬起的长羽翼 + 长尾羽扇"""
