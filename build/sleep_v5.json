@@ -1,0 +1,150 @@
+{
+  "meta": {"title": "人为什么要睡觉（多图编排版）", "accent": "amber"},
+  "style": {
+    "palette": {"bg_top": [8, 11, 26], "bg_mid": [11, 18, 42], "bg_bot": [2, 3, 9], "glow": "amber", "vignette": 0.55},
+    "bg": "deep-space",
+    "accents": ["amber", "cyan", "teal"]
+  },
+  "chapters": [
+    {
+      "no": "", "label_cn": "人为什么要睡觉", "label_en": "WHY WE SLEEP",
+      "accent": "amber", "duration": 5.0,
+      "scene": {"type": "title", "title_cn": "人为什么要睡觉", "title_en": "WHY WE SLEEP"}
+    },
+    {
+      "no": "01", "label_cn": "三分之一", "label_en": "ONE THIRD",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "moon", "size": 0.17, "bigtext": "1/3", "label": "睡眠占比"},
+        "parts": [
+          {"art": "bed",   "pos": [0.18, 0.60], "size": 0.085, "label": "每晚睡眠", "accent": "cyan"},
+          {"art": "clock", "pos": [0.82, 0.60], "size": 0.085, "label": "昼夜节律", "accent": "teal"}
+        ],
+        "links": [["hero", 0], ["hero", 1]]},
+      "sub": "你这辈子，有 1/3 在睡眠里度过"
+    },
+    {
+      "no": "02", "label_cn": "不是关机", "label_en": "NOT OFF",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "brain", "size": 0.17, "label": "大脑"},
+        "parts": [
+          {"art": "bolt", "pos": [0.17, 0.40], "size": 0.085, "label": "电活动", "accent": "amber"},
+          {"art": "wave", "pos": [0.83, 0.40], "size": 0.085, "label": "脑波",   "accent": "teal"}
+        ],
+        "links": [["hero", 0], ["hero", 1]]},
+      "sub": "睡着的脑，比清醒时更忙"
+    },
+    {
+      "no": "03", "label_cn": "记忆归档", "label_en": "MEMORY",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "book", "size": 0.17, "label": "长期记忆"},
+        "parts": [
+          {"art": "file",  "pos": [0.17, 0.40], "size": 0.085, "label": "白天经历", "accent": "amber"},
+          {"art": "brain", "pos": [0.83, 0.40], "size": 0.085, "label": "海马体",   "accent": "cyan"}
+        ],
+        "links": [[0, "hero"], ["hero", 1]]},
+      "sub": "白天的经历，夜里被整理归档"
+    },
+    {
+      "no": "04", "label_cn": "脑脊液大扫除", "label_en": "BRAIN WASH",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "droplet", "size": 0.17, "label": "脑脊液"},
+        "parts": [
+          {"art": "brain", "pos": [0.16, 0.40], "size": 0.085, "label": "夜间冲洗", "accent": "cyan"},
+          {"art": "trash", "pos": [0.84, 0.40], "size": 0.085, "label": "代谢废物", "accent": "amber"}
+        ],
+        "links": [["hero", 0], [0, 1]]},
+      "sub": "脑脊液趁夜扩大，冲走清醒时的代谢垃圾"
+    },
+    {
+      "no": "05", "label_cn": "垃圾堆积", "label_en": "AMYLOID",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "trash", "size": 0.17, "label": "堆积"},
+        "parts": [
+          {"art": "brain",     "pos": [0.18, 0.40], "size": 0.085, "label": "越积越多", "accent": "amber"},
+          {"art": "hourglass", "pos": [0.82, 0.40], "size": 0.085, "label": "随时间",   "accent": "cyan"}
+        ],
+        "links": [[1, 0], [0, "hero"]]},
+      "sub": "睡不够，大脑里的废物就越堆越多"
+    },
+    {
+      "no": "06", "label_cn": "身体修复", "label_en": "REPAIR",
+      "accent": "teal", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "gear", "size": 0.17, "label": "修复"},
+        "parts": [
+          {"art": "muscle", "pos": [0.18, 0.42], "size": 0.085, "label": "肌肉组织", "accent": "teal"},
+          {"art": "check",  "pos": [0.82, 0.42], "size": 0.085, "label": "修补完成", "accent": "cyan"}
+        ],
+        "links": [["hero", 0], [0, 1]]},
+      "sub": "深睡时生长激素高峰，悄悄修补身体"
+    },
+    {
+      "no": "07", "label_cn": "免疫加固", "label_en": "IMMUNE",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "shield", "size": 0.17, "label": "防御"},
+        "parts": [
+          {"art": "antibody", "pos": [0.16, 0.40], "size": 0.085, "label": "抗体",   "accent": "cyan"},
+          {"art": "germ",     "pos": [0.84, 0.40], "size": 0.085, "label": "病原体", "accent": "rose"}
+        ],
+        "links": [["hero", 0], [0, 1]]},
+      "sub": "睡好觉，疫苗抗体都更给力"
+    },
+    {
+      "no": "08", "label_cn": "反应力透支", "label_en": "ATTENTION",
+      "accent": "amber", "duration": 8.0,
+      "scene": {"type": "chart", "kind": "bar", "data": [
+        {"value": 100, "label": "清醒时", "value_label": "100%", "accent": "cyan"},
+        {"value": 35, "label": "17h不睡", "value_label": "≈醉酒", "accent": "ember"}
+      ]},
+      "sub": "清醒满 17 小时，反应力已相当于醉酒"
+    },
+    {
+      "no": "09", "label_cn": "越熬越饿", "label_en": "METABOLISM",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "apple", "size": 0.16, "label": "食欲"},
+        "parts": [
+          {"art": "stomach",    "pos": [0.16, 0.42], "size": 0.078, "label": "胃信号",  "accent": "teal"},
+          {"art": "arrow_up",   "pos": [0.84, 0.33], "size": 0.078, "label": "饥饿素↑", "accent": "amber"},
+          {"art": "arrow_down", "pos": [0.84, 0.60], "size": 0.078, "label": "瘦素↓",   "accent": "cyan"}
+        ],
+        "links": [["hero", 0], ["hero", 1], ["hero", 2]]},
+      "sub": "睡不够，饥饿素上升，肥肉也来得快"
+    },
+    {
+      "no": "10", "label_cn": "长期代价", "label_en": "LONG TERM",
+      "accent": "amber", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "heart", "size": 0.17, "label": "心血管"},
+        "parts": [
+          {"art": "wave", "pos": [0.17, 0.40], "size": 0.085, "label": "血压波动", "accent": "cyan"},
+          {"art": "bolt", "pos": [0.83, 0.40], "size": 0.085, "label": "负荷↑",   "accent": "ember"}
+        ],
+        "links": [["hero", 0], ["hero", 1]]},
+      "sub": "长期缺觉，慢病风险悄悄拉高"
+    },
+    {
+      "no": "11", "label_cn": "怎么睡更好", "label_en": "HOW TO SLEEP",
+      "accent": "cyan", "duration": 7.3,
+      "scene": {"type": "compose",
+        "hero": {"art": "check", "size": 0.16, "label": "好睡眠"},
+        "parts": [
+          {"art": "clock", "pos": [0.18, 0.42], "size": 0.085, "label": "固定作息", "accent": "cyan"},
+          {"art": "moon",  "pos": [0.82, 0.42], "size": 0.085, "label": "卧室够暗", "accent": "amber"}
+        ],
+        "links": [[0, "hero"], [1, "hero"]]},
+      "sub": "规律作息、避蓝光、卧室足够暗"
+    },
+    {
+      "no": "", "label_cn": "今晚，早点睡", "label_en": "SLEEP WELL",
+      "accent": "amber", "duration": 5.0,
+      "scene": {"type": "title", "title_cn": "今晚，早点睡", "title_en": "SLEEP WELL"}
+    }
+  ]
+}

@@ -372,6 +372,85 @@ class Renderer:
         fn = getattr(self, "sc_" + scene.get("type", "icon"), self.sc_icon)
         fn(dc, scene, t, dur, p, style)
 
+    # ===== 多图编排：主图 + 配角图 + 互联连线，共同解释一件事 =====
+    def sc_compose(self, dc, s, t, dur, p, style):
+        W, H = self.W, self.H; S = self.S
+        accents = style["accents"]
+        bg = self.bg_color(style)
+        nodes = {}
+
+        def place(e, default):
+            pos = e.get("pos")
+            if pos:
+                return float(pos[0]) * W, float(pos[1]) * H
+            return default
+
+        hero = s.get("hero")
+        if hero:
+            hx, hy = place(hero, (W / 2, H * 0.45))
+            local = stagger(t, 0, start=0.05, step=0.0, dur=0.5)
+            yy = hy + math.sin(t * 0.9) * S * 0.006
+            rr = S * hero.get("size", 0.17) * (0.72 + 0.28 * local)
+            col = ACCENTS.get(hero.get("accent", ""), accents[0])
+            self.sonar(dc, hx, yy, rr * 1.02, col, t, n=3, speed=0.26)
+            self.paste_glow(dc, (hx, yy), rr * 2.2, col, alpha=int(100 * local), power=2.2)
+            if hero.get("bigtext"):
+                self.text_c(dc, (hx, yy), hero["bigtext"], self.font(F_CN_B, int(H * 0.20)),
+                            style["palette"]["glow"] + (int(45 * local),))
+            drawing.draw_art(dc, hero.get("art", "moon"), hx, yy, rr, col, t, bg)
+            self.orbit_dots(dc, hx, yy, rr * 1.32, rr * 1.02, t, col, n=6, speed=0.9)
+            self.rise_dots(dc, hx, yy, rr * 0.7, rr * 2.0, t, col, n=5)
+            if hero.get("label"):
+                self.text_c(dc, (hx, yy + rr * 1.18), hero["label"], self.font(F_CN_B, int(H * 0.021)),
+                            style["text_main"] + (int(255 * local),))
+            nodes["hero"] = (hx, yy, rr)
+
+        parts = s.get("parts") or []
+        n = len(parts)
+        for i, pt in enumerate(parts):
+            ang = -math.pi / 2 + (2 * math.pi * i / max(1, n))
+            hx0 = nodes["hero"][0] if "hero" in nodes else W / 2
+            hy0 = nodes["hero"][1] if "hero" in nodes else H * 0.45
+            x, y = place(pt, (hx0 + S * 0.46 * math.cos(ang), hy0 + S * 0.24 * math.sin(ang)))
+            local = stagger(t, i + 1, start=0.25, step=0.22, dur=0.5)
+            if local <= 0.01:
+                nodes[i] = (x, y, S * 0.05)
+                continue
+            r = S * pt.get("size", 0.085) * (0.62 + 0.38 * local)
+            col = ACCENTS.get(pt.get("accent", ""), accents[(i + 1) % len(accents)])
+            yy = y + math.sin(t * 1.05 + i * 1.3) * S * 0.007
+            self.paste_glow(dc, (x, yy), r * 2.1, col, alpha=int(90 * local), power=2.1)
+            self.sonar(dc, x, yy, r * 0.96, col, t, n=2, speed=0.30)
+            drawing.draw_art(dc, pt.get("art", "star"), x, yy, r, col, t, bg)
+            self.orbit_dots(dc, x, yy, r * 1.28, r * 1.02, t, col, n=4, speed=0.8)
+            if pt.get("label"):
+                self.text_c(dc, (x, yy + r * 1.42), pt["label"], self.font(F_CN, int(H * 0.017)),
+                            style["text_note"] + (int(255 * local),))
+            nodes[i] = (x, yy, r)
+
+        # 连线：流动虚线 + 光点 + 箭头（把多个图真正"连"起来）
+        for lk in (s.get("links") or []):
+            if len(lk) < 2:
+                continue
+            a_key, b_key = lk[0], lk[1]
+            if a_key not in nodes or b_key not in nodes:
+                continue
+            x1, y1, r1 = nodes[a_key]; x2, y2, r2 = nodes[b_key]
+            dx, dy = x2 - x1, y2 - y1
+            L = math.hypot(dx, dy)
+            if L < 1:
+                continue
+            ux, uy = dx / L, dy / L
+            p1 = (x1 + ux * (r1 + 10), y1 + uy * (r1 + 10))
+            p2 = (x2 - ux * (r2 + 16), y2 - uy * (r2 + 16))
+            local = stagger(t, 2, start=0.5, step=0.0, dur=0.6)
+            note = style["text_note"]
+            self.dashed(dc, p1, p2, note + (int(140 * local),), dash=11, gap=8, offset=t * 42, width=3)
+            dc.line([(p2[0] - ux * 12 - uy * 7, p2[1] - uy * 12 + ux * 7), (p2[0], p2[1]),
+                     (p2[0] - ux * 12 + uy * 7, p2[1] - uy * 12 - ux * 7)],
+                    fill=note + (int(200 * local),), width=3, joint="curve")
+            self.seg_dot(dc, p1, p2, t, style["accents"][0], n=2, speed=0.4, r=3)
+
     def sc_title(self, dc, s, t, dur, p, style):
         W, H = self.W, self.H; S = self.S
         cy = H * 0.44

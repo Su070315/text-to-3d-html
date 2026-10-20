@@ -310,6 +310,100 @@ def _check(dc, cx, cy, size, color, t, bg):
     dc.line([(cx - size * 0.5, cy), (cx - size * 0.1, cy + size * 0.45)], fill=a, width=6, joint="curve")
     dc.line([(cx - size * 0.1, cy + size * 0.45), (cx + size * 0.6, cy - size * 0.4)], fill=a, width=6, joint="curve")
 
+# ===== v5 新增：用于「多图编排」的组合素材 =====
+
+def _file(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    w = size * 1.0; h = size * 1.3
+    x0 = cx - w / 2; y0 = cy - h / 2
+    fold = size * 0.34
+    dc.polygon([(x0, y0), (x0 + w - fold, y0), (x0 + w, y0 + fold),
+                (x0 + w, y0 + h), (x0, y0 + h)], fill=_rgba(color, 40), outline=a, width=3)
+    dc.polygon([(x0 + w - fold, y0), (x0 + w - fold, y0 + fold), (x0 + w, y0 + fold)],
+               fill=_rgba(color, 120), outline=a, width=2)
+    for k in range(1, 4):
+        yy = y0 + h * (0.30 + 0.17 * k)
+        dc.line([(x0 + w * 0.16, yy), (x0 + w * 0.82, yy)], fill=_rgba(color, 150), width=2)
+
+def _antibody(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    dc.line([(cx, cy + size * 0.85), (cx, cy - size * 0.1)], fill=a, width=7)
+    dc.line([(cx, cy - size * 0.1), (cx - size * 0.62, cy - size * 0.8)], fill=a, width=7)
+    dc.line([(cx, cy - size * 0.1), (cx + size * 0.62, cy - size * 0.8)], fill=a, width=7)
+    dc.ellipse([cx - 4, cy + size * 0.84, cx + 4, cy + size * 0.9], fill=_rgba(color, 200))
+
+def _germ(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    r = size * 0.52
+    dc.ellipse([cx - r, cy - r, cx + r, cy + r], fill=_rgba(color, 45), outline=a, width=3)
+    n = 10
+    for i in range(n):
+        ang = 2 * math.pi * i / n + t * 0.6
+        x2 = cx + (r + size * 0.34) * math.cos(ang)
+        y2 = cy + (r + size * 0.34) * math.sin(ang)
+        dc.line([(cx + r * math.cos(ang), cy + r * math.sin(ang)), (x2, y2)], fill=a, width=3)
+        dc.ellipse([x2 - 3, y2 - 3, x2 + 3, y2 + 3], fill=a)
+
+def _arrow_up(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    dc.line([(cx, cy + size * 0.55), (cx, cy - size * 0.35)], fill=a, width=6)
+    dc.polygon([(cx, cy - size), (cx - size * 0.42, cy - size * 0.3), (cx + size * 0.42, cy - size * 0.3)], fill=a)
+
+def _arrow_down(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    dc.line([(cx, cy - size * 0.55), (cx, cy + size * 0.35)], fill=a, width=6)
+    dc.polygon([(cx, cy + size), (cx - size * 0.42, cy + size * 0.3), (cx + size * 0.42, cy + size * 0.3)], fill=a)
+
+def _stomach(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    pts = []
+    for i in range(52):
+        ang = 2 * math.pi * i / 52
+        pinch = 1 - 0.48 * max(0.0, math.cos(ang)) ** 2
+        pts.append((cx + size * 0.8 * math.cos(ang) * pinch, cy + size * 0.95 * math.sin(ang)))
+    dc.polygon(pts, fill=_rgba(color, 42), outline=a, width=3)
+    for k in range(2):
+        yy = cy - size * 0.25 + k * size * 0.4
+        dc.line([(cx - size * 0.25, yy), (cx + size * 0.2, yy)], fill=_rgba(color, 140), width=2)
+
+def _muscle(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    dc.rounded_rectangle([cx - size * 0.42, cy - size * 0.10, cx + size * 0.42, cy + size * 0.10],
+                         radius=6, fill=a)
+    for sgn in (-1, 1):
+        px = cx + sgn * size * 0.55
+        dc.polygon([(px - sgn * size * 0.14, cy - size * 0.20),
+                    (px + sgn * size * 0.14, cy - size * 0.36),
+                    (px + sgn * size * 0.14, cy + size * 0.36),
+                    (px - sgn * size * 0.14, cy + size * 0.20)],
+                   fill=_rgba(color, 75), outline=a, width=3)
+
+def _hourglass(dc, cx, cy, size, color, t, bg):
+    a = _rgba(color, 255)
+    w = size * 0.72; h = size * 1.5
+    top = cy - h / 2; bot = cy + h / 2
+    dc.rectangle([cx - w / 2, top, cx + w / 2, top + h * 0.08], fill=a)
+    dc.rectangle([cx - w / 2, bot - h * 0.08, cx + w / 2, bot], fill=a)
+    dc.polygon([(cx - w / 2, top + h * 0.08), (cx + w / 2, top + h * 0.08),
+                (cx + size * 0.05, cy), (cx - size * 0.05, cy)],
+               fill=_rgba(color, 28), outline=a, width=3)
+    dc.polygon([(cx - w / 2, bot - h * 0.08), (cx + w / 2, bot - h * 0.08),
+                (cx + size * 0.05, cy), (cx - size * 0.05, cy)],
+               fill=_rgba(color, 28), outline=a, width=3)
+    u = 0.5 + 0.5 * math.sin(t * 0.6)
+    ft = h * 0.30 * (1 - u); fb = h * 0.30 * u
+    if ft > 1:
+        dc.polygon([(cx - w / 2 + 2, cy - ft), (cx + w / 2 - 2, cy - ft),
+                    (cx + size * 0.04, cy - 2), (cx - size * 0.04, cy - 2)], fill=_rgba(color, 150))
+    if fb > 1:
+        dc.polygon([(cx - w / 2 + 2, bot - h * 0.09), (cx + w / 2 - 2, bot - h * 0.09),
+                    (cx + size * 0.10, bot - h * 0.09 - fb), (cx - size * 0.10, bot - h * 0.09 - fb)],
+                   fill=_rgba(color, 150))
+    for i in range(3):
+        ph = ((t * 0.9) + i / 3) % 1.0
+        yy = cy + (bot - cy - h * 0.1) * ph
+        dc.ellipse([cx - 2, yy - 2, cx + 2, yy + 2], fill=_rgba(color, 180))
+
 # ---------------- 调度 ----------------
 
 _ART = {
@@ -319,6 +413,10 @@ _ART = {
     "book": _book, "apple": _apple, "leaf": _leaf, "wave": _wave,
     "atom": _atom, "gear": _gear, "trash": _trash, "bolt": _bolt,
     "eye": _eye, "mountain": _mountain, "scale": _scale, "check": _check,
+    # v5 组合素材
+    "file": _file, "antibody": _antibody, "germ": _germ,
+    "arrow_up": _arrow_up, "arrow_down": _arrow_down,
+    "stomach": _stomach, "muscle": _muscle, "hourglass": _hourglass,
 }
 
 def draw_art(dc, name, cx, cy, size, color, t=0.0, bg=(8, 12, 26)):
