@@ -1,0 +1,66 @@
+{
+  "meta": {"title": "人为什么吃饭", "accent": "amber"},
+  "chapters": [
+    {
+      "no": "01",
+      "label_cn": "基础代谢",
+      "label_en": "BASAL METABOLISM",
+      "accent": "amber",
+      "duration": 4.5,
+      "scene": {"type": "figure"},
+      "sub": "哪怕躺着不动，身体也在偷偷烧火"
+    },
+    {
+      "no": "02",
+      "label_cn": "人为什么吃饭",
+      "label_en": "WHY WE EAT",
+      "accent": "cyan",
+      "duration": 4.5,
+      "scene": {"type": "figure", "clock": true},
+      "note": "刚吃完几小时，肚子又叫了",
+      "sub": "你已经吃了一辈子，为什么一顿都不能少？"
+    },
+    {
+      "no": "04",
+      "label_cn": "三大营养素",
+      "label_en": "NUTRIENTS",
+      "accent": "amber",
+      "duration": 4.5,
+      "scene": {
+        "type": "hex",
+        "items": [
+          {"label": "蛋白", "note": "维持肌量", "accent": "amber"},
+          {"label": "脂肪", "note": "保护内脏", "accent": "gold"}
+        ]
+      },
+      "note": "蛋白质 · 脂类 · 碳水，缺一不可",
+      "sub": "吃得齐全，身体才有得用"
+    },
+    {
+      "no": "05",
+      "label_cn": "低电量",
+      "label_en": "LOW BATTERY",
+      "accent": "amber",
+      "duration": 4.5,
+      "scene": {"type": "battery", "glyph": "饿", "glyph_note": "胃发出饥饿信号"},
+      "sub": "饿，不是嘴馋，是身体的低电量警报"
+    },
+    {
+      "no": "07",
+      "label_cn": "万物能量",
+      "label_en": "ENERGY FLOW",
+      "accent": "cyan",
+      "duration": 4.5,
+      "scene": {
+        "type": "flow",
+        "items": [
+          {"glyph": "日", "label": "太阳", "accent": "amber"},
+          {"glyph": "叶", "label": "植物", "accent": "teal"},
+          {"glyph": "兽", "label": "食草动物", "accent": "gold"},
+          {"glyph": "人", "label": "你", "accent": "cyan"}
+        ]
+      },
+      "sub": "吃，是生命向宇宙借来的秩序"
+    }
+  ]
+}

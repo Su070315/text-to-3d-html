@@ -1,0 +1,83 @@
+{
+  "meta": {"title": "光合作用", "accent": "green"},
+  "style": {
+    "palette": {"bg_top": [16, 34, 24], "bg_mid": [10, 26, 30], "bg_bot": [4, 10, 10],
+                "glow": [120, 210, 140], "vignette": 0.5},
+    "bg": "organic",
+    "accents": ["green", "gold"]
+  },
+  "chapters": [
+    {
+      "no": "", "label_cn": "光合作用", "label_en": "PHOTOSYNTHESIS",
+      "accent": "green", "duration": 4.0,
+      "scene": {"type": "title", "title_cn": "光合作用", "title_en": "PHOTOSYNTHESIS"}
+    },
+    {
+      "no": "", "label_cn": "地球的能量引擎", "label_en": "EARTH ENGINE",
+      "accent": "green", "duration": 6.0,
+      "scene": {"type": "icon", "glyph": "叶", "label": "自养"},
+      "sub": "它把阳光、空气和水，变成几乎所有生命的口粮"
+    },
+    {
+      "no": "01", "label_cn": "三个原料", "label_en": "INPUTS",
+      "accent": "green", "duration": 6.0,
+      "scene": {"type": "flow", "items": [
+        {"glyph": "日", "label": "阳光", "accent": "gold"},
+        {"glyph": "水", "label": "水", "accent": "cyan"},
+        {"glyph": "碳", "label": "二氧化碳", "accent": "teal"}
+      ]},
+      "sub": "阳光 + 水 + 二氧化碳，是这场反应的全部原料"
+    },
+    {
+      "no": "02", "label_cn": "反应舞台", "label_en": "CHLOROPLAST",
+      "accent": "green", "duration": 6.0,
+      "scene": {"type": "icon", "glyph": "叶", "label": "叶绿体"},
+      "sub": "这一切，发生在一片小小的叶绿体里"
+    },
+    {
+      "no": "03", "label_cn": "第一阶段·光反应", "label_en": "LIGHT REACT",
+      "accent": "gold", "duration": 7.0,
+      "scene": {"type": "timeline", "items": [
+        {"label": "吸光", "year": "类囊体"},
+        {"label": "水光解", "year": "放出 O₂"},
+        {"label": "造 ATP", "year": "存能量"}
+      ]},
+      "sub": "光驱动水的光解，放出氧气，并把光能存成 ATP"
+    },
+    {
+      "no": "04", "label_cn": "第二阶段·碳反应", "label_en": "CARBON FIX",
+      "accent": "green", "duration": 7.0,
+      "scene": {"type": "flow", "items": [
+        {"glyph": "碳", "label": "固定 CO₂", "accent": "teal"},
+        {"glyph": "三", "label": "生成 C₃", "accent": "green"},
+        {"glyph": "糖", "label": "合成糖", "accent": "gold"}
+      ]},
+      "sub": "不用光，靠 ATP 把二氧化碳还原成糖"
+    },
+    {
+      "no": "05", "label_cn": "能量之旅", "label_en": "ENERGY",
+      "accent": "gold", "duration": 6.0,
+      "scene": {"type": "flow", "items": [
+        {"glyph": "光", "label": "光能", "accent": "gold"},
+        {"glyph": "电", "label": "电能", "accent": "cyan"},
+        {"glyph": "糖", "label": "糖", "accent": "green"}
+      ]},
+      "sub": "光能 → 电能 → 稳定的化学能，藏在糖里"
+    },
+    {
+      "no": "06", "label_cn": "它给了什么", "label_en": "WHY IT MATTERS",
+      "accent": "green", "duration": 7.0,
+      "scene": {"type": "network", "items": [
+        {"glyph": "氧", "label": "氧气"},
+        {"glyph": "食", "label": "食物链"},
+        {"glyph": "碳", "label": "碳平衡"}
+      ], "glyph": "叶", "label": "光合作用"},
+      "sub": "产氧、养食物链、维持碳氧平衡——缺一不可"
+    },
+    {
+      "no": "", "label_cn": "每一口呼吸，都欠绿叶一次", "label_en": "THANK A LEAF",
+      "accent": "green", "duration": 4.0,
+      "scene": {"type": "title", "title_cn": "每一口呼吸，都欠绿叶一次", "title_en": "THANK A LEAF"}
+    }
+  ]
+}
